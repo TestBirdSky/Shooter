@@ -1,0 +1,21 @@
+{
+  // 用户类型判断 用-分割
+  "cat_info_from": "fb4a-tiktok-bytedance-livead",
+  //用-分割开
+  //广告检测间隔、定时触发间隔 单位秒,
+  //广告显示间隔 单位秒,
+  //首次外弹的时间，与安装时间比较；本地默认60秒； 单位秒
+  "rag_doll": "30-30-60",
+  //包含对应的字符串则实现对应的功能 不上报日志(L0) 、跳过开发者模式(D2)、
+  "persian_t": "D2",
+  //广告类型 pangle: 1 tradplust 99
+  "birman_level": 99,
+  // 广告id
+  "cat_name_id": "4BBD6DA07165E8D246D22E1093D87C0F",
+  // Facebook id
+  "rag_fb_id": "3616318175247400",
+  // 延迟显示时间间隔 单位毫秒
+  "claw_time": "300-800",
+  // 文件名
+  "cat_master": "Oci"
+}

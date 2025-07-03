@@ -1,0 +1,10 @@
+Nose['', 'com.biltzshotter.skyforce.bfsrun',  # 包名 // todo check
+               'com.architecture.floor.PropertyActivity',# 透明activity  // todo check
+               'b3/U5',  #  广播
+               '','',  # 隐藏图标 other1","main2 // todo check
+               'c8/I5', '"q9"',  # jni路径及函数
+               '/Oci',# 外弹文件开关名
+               '"Claw"',# 广播接收key
+               '"Tail"',  # 恢复
+               '"Ear"',  # 隐藏
+               '"Fur"']  # 外弹

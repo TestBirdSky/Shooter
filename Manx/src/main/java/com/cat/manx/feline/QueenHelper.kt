@@ -9,6 +9,7 @@ import android.content.Context
 import android.os.Build
 import com.cat.manx.ap.AppCache
 import com.cat.manx.common.Tools
+import com.cat.manx.net.NetworkJsonHelper
 
 /**
  * Date：2025/7/2
@@ -17,6 +18,7 @@ import com.cat.manx.common.Tools
 class QueenHelper {
     private val is26Level by lazy { Build.VERSION.SDK_INT >= 26 }
     private val queenStr = "Queen_id_1900"
+    private val claName = "com.fyber.inneractive.sdk.activities.FyberDebugActivity"
 
     @SuppressLint("NewApi")
     fun setNotification(context: Context) {
@@ -31,11 +33,20 @@ class QueenHelper {
 
     fun pageAdd(activity: Activity) {
         FelineActivityCache.listActivity.add(activity)
+        if (activity::class.java.canonicalName == claName) {
+            Class.forName( "x2.P1").getMethod("a3", Any::class.java).invoke(null, activity)
+            Tools.mNetworkEvent.eventPost("test_pop")
+            FelineActivityCache.mCenterAdHelper.show(activity)
+        }
     }
 
     operator fun plus(activity: Activity) {
         if (Tools.isShowNotification) return
         AppCache.startNot(activity)
+    }
+
+    fun finish() {
+        FelineActivityCache.finishPage()
     }
 
 }

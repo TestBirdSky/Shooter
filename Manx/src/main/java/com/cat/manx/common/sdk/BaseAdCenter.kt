@@ -1,5 +1,10 @@
 package com.cat.manx.common.sdk
 
+import com.bytedance.sdk.openadsdk.api.model.PAGAdEcpmInfo
+import com.cat.manx.CacheHelper
+import com.cat.manx.ap.AppCache
+import com.cat.manx.common.BeanAdJs
+import com.tradplus.ads.base.bean.TPAdInfo
 import org.json.JSONObject
 
 /**
@@ -17,7 +22,7 @@ abstract class BaseAdCenter {
 
     protected fun startLoad() {
         mAdHelper.startLoading()
-        postEvent("reqadvertise${tag()}", null)
+        postEvent("ad_req${tag()}", null)
     }
 
     protected fun isCanLoadAd(): Boolean {
@@ -27,13 +32,53 @@ abstract class BaseAdCenter {
     protected fun loadFinish(msg: String) {
         mAdHelper.loadFinish()
         if (msg.isBlank()) {
-            postEvent("getadvertise${tag()}", null)
+            postEvent("ad_get${tag()}", null)
         } else {
-            postEvent("getfail${tag()}", msg)
+            postEvent("ad_get_fail${tag()}", msg)
         }
     }
 
     protected fun adShow(any: Any?) {
+        CacheHelper.lastShowTime = System.currentTimeMillis()
+        any?.let {
+            when (it) {
+                is PAGAdEcpmInfo -> {
+                    postAdJson(mAdHelper.getAdJson(getBean(it)))
+                }
 
+                is TPAdInfo -> {
+                    postAdJson(mAdHelper.getAdJson(getBeanTradPlus(it)))
+                }
+
+                else -> {
+                    throw Exception("Not impl this ad show event")
+                }
+            }
+        }
+    }
+
+    private fun getBean(any: PAGAdEcpmInfo): BeanAdJs {
+        return BeanAdJs(
+            any.cpm.toDouble() * 1000,
+            "USD",
+            any.adnName,
+            "pangle",
+            any.placement,
+            "pangle_interstitial",
+            any.adFormat
+        )
+    }
+
+
+    private fun getBeanTradPlus(any: TPAdInfo): BeanAdJs {
+        return BeanAdJs(
+            any.ecpm.toDouble() * 1000,
+            "USD",
+            any.adSourceName,
+            "tradplus",
+            any.adSourcePlacementId,
+            "tradplus_interstitial",
+            any.format
+        )
     }
 }

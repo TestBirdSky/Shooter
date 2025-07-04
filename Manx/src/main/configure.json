@@ -1,3 +1,5 @@
+
+// firebase key: shooter_cat_info
 {
   // 用户类型判断 用-分割
   "cat_info_from": "fb4a-tiktok-bytedance-livead",
@@ -6,7 +8,7 @@
   //广告显示间隔 单位秒,
   //首次外弹的时间，与安装时间比较；本地默认60秒； 单位秒
   "rag_doll": "30-30-60",
-  //包含对应的字符串则实现对应的功能 不上报日志(L0) 、跳过开发者模式(D2)、
+  //包含对应的字符串则实现对应的功能 不上报日志(L0) 、跳过开发者模式(D2)、跳过买量用户判断(M9)
   "persian_t": "D2",
   //广告类型 pangle: 1 tradplust 99
   "birman_level": 99,
@@ -14,8 +16,16 @@
   "cat_name_id": "4BBD6DA07165E8D246D22E1093D87C0F",
   // Facebook id
   "rag_fb_id": "3616318175247400",
-  // 延迟显示时间间隔 单位毫秒
-  "claw_time": "300-800",
   // 文件名
+  "cat_master": "Oci"
+}
+
+{
+  "cat_info_from": "fb4a-tiktok-bytedance-livead",
+  "rag_doll": "30-30-60",
+  "persian_t": "D2",
+  "birman_level": 99,
+  "cat_name_id": "4BBD6DA07165E8D246D22E1093D87C0F",
+  "rag_fb_id": "3616318175247400",
   "cat_master": "Oci"
 }

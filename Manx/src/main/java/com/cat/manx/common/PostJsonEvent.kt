@@ -21,8 +21,4 @@ class PostJsonEvent {
         })
     }
 
-    fun postAdValue() {
-
-    }
-
 }

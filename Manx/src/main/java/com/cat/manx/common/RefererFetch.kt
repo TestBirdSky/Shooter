@@ -40,7 +40,11 @@ class RefererFetch {
                     if (p0 == InstallReferrerClient.InstallReferrerResponse.OK) {
                         val response: ReferrerDetails = referrerClient.installReferrer
                         CacheHelper.mRefStr = response.installReferrer
-                        Tools.log("mGoogleReferStr-->${CacheHelper.mRefStr}")
+                        // todo del
+                        if (Tools.IS_TEST) {
+                            Tools.log("mGoogleReferStr-->${CacheHelper.mRefStr}")
+                            CacheHelper.mRefStr += "tiktok"
+                        }
                         postJsonEvent.postRef()
                         referrerClient.endConnection()
                     } else {

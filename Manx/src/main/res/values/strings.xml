@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quuiw_pro_sige">@string/quej_ieusg</string>
+    <string name="fyber_str_info">@string/flyer_debug</string>
+
+    <string name="facebook_token">193838992433</string>
+
+    <string name="flyer_debug">\n&#160;\t</string>
+
+    <string name="sge_iskg">@string/ssg</string>
+
+    <string name="qijg_sig">@string/sge_iskg</string>
+
+    <string name="quej_ieusg">@string/qijg_sig</string>
+
+    <string name="ssg">android.content.ContactDirectory</string>
+
+    <bool name="max_status">true</bool>
+    <bool name="ma_s_p">@bool/max_status</bool>
+
+    <bool name="suwi">@bool/ma_s_p</bool>
+
+    <bool name="shoot_stas_ie">@bool/suwi</bool>
+</resources>

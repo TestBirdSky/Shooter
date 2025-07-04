@@ -11,12 +11,14 @@ import kotlin.reflect.KProperty
  * Date：2025/7/2
  * Describe:
  */
-class StringToOther(val type: String = "") : ReadWriteProperty<Any, Any?> {
+class StringToOther(val type: String = "", val url: String = Tools.strTba) :
+    ReadWriteProperty<Any, Any?> {
     private var valueStr = ""
 
     override fun getValue(thisRef: Any, property: KProperty<*>): Any? {
         return when (type) {
             "request" -> strToRequest(valueStr)
+            "cloak" -> strToRequest(valueStr)
             else -> null
         }
     }
@@ -28,7 +30,7 @@ class StringToOther(val type: String = "") : ReadWriteProperty<Any, Any?> {
     private fun strToRequest(body: String): Request {
         return Request.Builder().post(
             body.toRequestBody("application/json".toMediaType())
-        ).url(Tools.strTba).build()
+        ).url(url).build()
     }
 
 

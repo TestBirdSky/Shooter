@@ -27,11 +27,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    packagingOptions.jniLibs.useLegacyPackaging = true
+
 }
 
 dependencies {
 
-    implementation(project(":Kitten"))
+    api(project(":Kitten"))
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -79,6 +88,9 @@ dependencies {
     implementation 'com.tradplusad:tradplus-fyber:24.14.1.20.1'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
     implementation 'com.google.android.gms:play-services-base:17.4.0'
+    // Start.io
+    implementation 'com.startapp:inapp-sdk:5.2.0'
+    implementation 'com.tradplusad:tradplus-startapp:28.14.1.20.1'
     // Mintegral
     implementation 'com.tradplusad:tradplus-mintegralx_overseas:18.14.1.20.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'

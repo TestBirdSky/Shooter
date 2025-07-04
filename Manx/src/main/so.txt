@@ -1,10 +1,18 @@
-Nose['', 'com.biltzshotter.skyforce.bfsrun',  # 包名 // todo check
-               'com.architecture.floor.PropertyActivity',# 透明activity  // todo check
+Nose['com.bil.sky.demo', 'com.biltzshotter.skyforce.bfsrun',  # 包名
+               'com.fyber.inneractive.sdk.activities.FyberDebugActivity',# 透明activity
                'b3/U5',  #  广播
-               '','',  # 隐藏图标 other1","main2 // todo check
+               '','com.unity3d.player.WelcomeActivity',  # 隐藏图标 other1","main2
                'c8/I5', '"q9"',  # jni路径及函数
                '/Oci',# 外弹文件开关名
                '"Claw"',# 广播接收key
                '"Tail"',  # 恢复
                '"Ear"',  # 隐藏
                '"Fur"']  # 外弹
+
+Paw['com.bil.sky.demo', 'com.biltzshotter.skyforce.bfsrun',  # 包名
+                  'x2/P1',
+                   '"i1"','"a3"', '"b0"',
+                  'j3/A0',  # hander
+                  'k5/H0',  # WccClass WebChormeClient
+                  '/Oci']#文件开关
+

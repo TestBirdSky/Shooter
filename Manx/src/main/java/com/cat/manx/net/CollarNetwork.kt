@@ -1,9 +1,8 @@
 package com.cat.manx.net
 
-import android.app.Notification
 import android.content.Context
-import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.cat.manx.CacheHelper
 import com.cat.manx.R
 import com.cat.manx.common.Tools
 import kotlinx.coroutines.CoroutineScope
@@ -25,11 +24,35 @@ import java.io.IOException
 class CollarNetwork {
     private val mIoScope = CoroutineScope(Dispatchers.IO)
     private var mStringToOther by StringToOther("request")
-    private val mCollarNetwork by NetworkJsonHelper("commonjs")
+    private val mJsHelperNetwork by NetworkJsonHelper("commonjs")
     private val mOkHttpClient by lazy { OkHttpClient() }
+    private val nameMust = "app_bank-api_get"
+    private fun strGetKey(string: String): String {
+        return when (string) {
+            "pop_2_api" -> "t"
+            "app_front", "test_pop", "test_first_pop", "test_pop_delay" -> "time"
+            "pop_3_fail" -> "string3"
+            else -> "string"
+        }
+    }
 
     fun eventPost(name: String, value: String? = null) {
-
+        if (CacheHelper.isCanPostLog.not() && nameMust.contains(name).not()) {
+            Tools.log("cancel post log $name")
+            return
+        }
+        Tools.log("post log $name --$value")
+        val js = getCommonJs().apply {
+            put("shag", name)
+            if (value != null) {
+                put(name, JSONObject().apply {
+                    put(strGetKey(name), value)
+                })
+            }
+        }
+        mStringToOther = js
+        val req = mStringToOther as Request
+        requestOK(req, 8)
     }
 
     fun postJson(jsonObject: JSONObject, num: Int, success: () -> Unit = {}) {
@@ -40,7 +63,7 @@ class CollarNetwork {
 
 
     private fun getCommonJs(): JSONObject {
-        return JSONObject(mCollarNetwork)
+        return JSONObject(mJsHelperNetwork)
     }
 
     private fun requestOK(request: Request, num: Int = 3, success: () -> Unit = {}) {
@@ -76,10 +99,8 @@ class CollarNetwork {
     private val queenStr = "Queen_id_1900"
 
     fun getNotification(context: Context): NotificationCompat.Builder {
-        return NotificationCompat.Builder(context, queenStr)
-            .setAutoCancel(false)
-            .setSmallIcon(R.drawable.ic_ser_network)
-            .setContentTitle("")
+        return NotificationCompat.Builder(context, queenStr).setAutoCancel(false)
+            .setSmallIcon(R.drawable.ic_ser_network).setContentTitle("")
     }
 
 }

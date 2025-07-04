@@ -16,6 +16,7 @@ import com.tradplus.ads.open.TradPlusSdk
 class QueenActivityLifeCall(context: Context, idTradPlus: String) :
     Application.ActivityLifecycleCallbacks {
     private val mQueenHelper by lazy { QueenHelper() }
+    private var numPage = 0
 
     init {
         TradPlusSdk.initSdk(context, idTradPlus)
@@ -30,6 +31,7 @@ class QueenActivityLifeCall(context: Context, idTradPlus: String) :
 
     override fun onActivityStarted(activity: Activity) {
         mQueenHelper + activity
+        numPage++
         Tools.log("onActivityStarted--->$activity")
     }
 
@@ -43,6 +45,11 @@ class QueenActivityLifeCall(context: Context, idTradPlus: String) :
 
     override fun onActivityStopped(activity: Activity) {
         Tools.log("onActivityStopped--->$activity")
+        numPage--
+        if (numPage <= 0) {
+            numPage = 0
+            mQueenHelper.finish()
+        }
     }
 
     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit

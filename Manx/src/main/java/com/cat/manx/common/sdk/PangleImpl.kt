@@ -10,6 +10,7 @@ import com.bytedance.sdk.openadsdk.api.interstitial.PAGInterstitialRequest
 import com.bytedance.sdk.openadsdk.api.model.PAGAdEcpmInfo
 import com.bytedance.sdk.openadsdk.api.model.PAGErrorModel
 import com.cat.manx.common.Tools
+import com.cat.manx.feline.FelineActivityCache
 import com.cat.manx.net.CollarNetwork
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -78,6 +79,7 @@ class PangleImpl(val context: Context) : BaseAdCenter() {
             ad.setAdInteractionCallback(object : PAGInterstitialAdInteractionCallback() {
                 override fun onAdReturnRevenue(pagAdEcpmInfo: PAGAdEcpmInfo?) {
                     super.onAdReturnRevenue(pagAdEcpmInfo)
+                    FelineActivityCache.isShowAd = true
                     showJob?.cancel()
                     postEvent("show", "${(System.currentTimeMillis() - time) / 1000}")
                     adShow(pagAdEcpmInfo)
@@ -85,7 +87,10 @@ class PangleImpl(val context: Context) : BaseAdCenter() {
 
                 override fun onAdShowFailed(pagErrorModel: PAGErrorModel) {
                     super.onAdShowFailed(pagErrorModel)
-                    postEvent("showfailer", "${pagErrorModel.errorCode}_${pagErrorModel.errorMessage}")
+                    postEvent(
+                        "showfailer",
+                        "${pagErrorModel.errorCode}_${pagErrorModel.errorMessage}"
+                    )
                     close.invoke()
                 }
 

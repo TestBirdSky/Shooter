@@ -30,7 +30,7 @@ dependencyResolutionManagement {
         //Launch GP market application， Android X Version
         //If you fail to pull the code using gradle, add the maven warehouse configuration to the project root build.gradle file
         maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+            url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
         }
 
     }

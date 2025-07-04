@@ -3,6 +3,7 @@ package com.cat.manx.common.sdk
 import android.app.Activity
 import android.content.Context
 import com.cat.manx.common.Tools
+import com.cat.manx.feline.FelineActivityCache
 import com.tradplus.ads.base.bean.TPAdError
 import com.tradplus.ads.base.bean.TPAdInfo
 import com.tradplus.ads.open.TradPlusSdk
@@ -78,6 +79,7 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
     override fun onAdImpression(p0: TPAdInfo?) {
         jobShow?.cancel()
         adShow(p0)
+        FelineActivityCache.isShowAd = true
     }
 
     override fun onAdClicked(p0: TPAdInfo?) = Unit

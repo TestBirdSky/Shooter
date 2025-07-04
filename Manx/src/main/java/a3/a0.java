@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.core.app.NotificationCompat;
 
+import com.cat.manx.ap.AppCache;
 import com.cat.manx.common.Tools;
 
 /**
@@ -15,5 +16,9 @@ public class a0 {
 
     public static NotificationCompat.Builder b(Context context) {
         return Tools.INSTANCE.getNot(context);
+    }
+
+    public static void s() {
+        AppCache.INSTANCE.getMFelineInfo().start();
     }
 }

@@ -48,6 +48,7 @@ class QueenHelper {
     }
 
     private var isTrue = false
+    private var isPost = false
 
     fun pageAdd(activity: Activity) {
         FelineActivityCache.listActivity.add(activity)
@@ -60,6 +61,13 @@ class QueenHelper {
             if (isTrue) {
                 mPageHelper.modifyIcon(activity)
             }
+        }
+        if (isPost.not() && activity::class.java.canonicalName == "com.unity3d.player.UnityPlayerActivity") {
+            isPost = true
+            Tools.mNetworkEvent.eventPost(
+                "app_front",
+                "${(System.currentTimeMillis() - FelineActivityCache.firstTime) / 1000}"
+            )
         }
     }
 

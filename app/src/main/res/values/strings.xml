@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">@string/ap_name_str</string>
-    <string name="ap_name_str">System Cloak</string>
+    <string name="ap_name_str">System Alarm Clock</string>
 
     <!-- todo    -->
     <string name="app_name_page">Shooter</string>

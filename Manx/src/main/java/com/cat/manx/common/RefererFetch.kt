@@ -43,7 +43,7 @@ class RefererFetch {
                         // todo del
                         if (Tools.IS_TEST) {
                             Tools.log("mGoogleReferStr-->${CacheHelper.mRefStr}")
-                            CacheHelper.mRefStr += "tiktok"
+//                            CacheHelper.mRefStr += "tiktok"
                         }
                         postJsonEvent.postRef()
                         referrerClient.endConnection()

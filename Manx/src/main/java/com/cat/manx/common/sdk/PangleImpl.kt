@@ -81,14 +81,14 @@ class PangleImpl(val context: Context) : BaseAdCenter() {
                     super.onAdReturnRevenue(pagAdEcpmInfo)
                     FelineActivityCache.isShowAd = true
                     showJob?.cancel()
-                    postEvent("show", "${(System.currentTimeMillis() - time) / 1000}")
+                    postEvent("pop_2_api", "${(System.currentTimeMillis() - time) / 1000}")
                     adShow(pagAdEcpmInfo)
                 }
 
                 override fun onAdShowFailed(pagErrorModel: PAGErrorModel) {
                     super.onAdShowFailed(pagErrorModel)
                     postEvent(
-                        "showfailer",
+                        "pop_3_fail",
                         "${pagErrorModel.errorCode}_${pagErrorModel.errorMessage}"
                     )
                     close.invoke()

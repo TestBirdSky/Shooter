@@ -10,8 +10,8 @@ import org.json.JSONObject
  */
 class AdHelper {
     private val mCollarNetwork by NetworkJsonHelper("commonjs")
-    var isLoading = false
-    var loadingTime = 0L
+    private var isLoading = false
+    private var loadingTime = 0L
 
     fun startLoading() {
         isLoading = true

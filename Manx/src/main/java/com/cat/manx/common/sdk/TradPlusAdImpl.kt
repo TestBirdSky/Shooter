@@ -9,7 +9,11 @@ import com.tradplus.ads.base.bean.TPAdInfo
 import com.tradplus.ads.open.TradPlusSdk
 import com.tradplus.ads.open.interstitial.InterstitialAdListener
 import com.tradplus.ads.open.interstitial.TPInterstitial
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 /**
@@ -61,6 +65,11 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
         if (isAdReady()) {
             timeShowEvent = System.currentTimeMillis()
             closeEvent = close
+            jobShow?.cancel()
+            jobShow = CoroutineScope(Dispatchers.IO).launch {
+                delay(5000)
+                activity.finishAndRemoveTask()
+            }
             mTPInterstitial?.showAd(activity, "")
         } else {
             activity.finishAndRemoveTask()
@@ -78,6 +87,7 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
 
     override fun onAdImpression(p0: TPAdInfo?) {
         jobShow?.cancel()
+        postEvent("pop_2_api", "${(System.currentTimeMillis() - timeShowEvent) / 1000}")
         adShow(p0)
         FelineActivityCache.isShowAd = true
     }
@@ -92,7 +102,7 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
     override fun onAdVideoError(p0: TPAdInfo?, p1: TPAdError?) {
         closeEvent?.invoke()
         closeEvent = null
-        postEvent("showfailer", "${p1?.errorCode}_${p1?.errorMsg}")
+        postEvent("pop_3_fail", "${p1?.errorCode}_${p1?.errorMsg}")
     }
 
     override fun onAdVideoStart(p0: TPAdInfo?) = Unit

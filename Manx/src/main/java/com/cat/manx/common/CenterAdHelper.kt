@@ -44,6 +44,7 @@ class CenterAdHelper(val context: Context) {
     private var isPostFirstInfo by BoolCacheImpl()
     private fun postFirst() {
         if (isPostFirstInfo) return
+        isPostFirstInfo = true
         Tools.mNetworkEvent.eventPost(
             "test_first_pop",
             (System.currentTimeMillis() - FelineActivityCache.firstTime).toString()

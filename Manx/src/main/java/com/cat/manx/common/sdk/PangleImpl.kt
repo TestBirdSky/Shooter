@@ -2,6 +2,7 @@ package com.cat.manx.common.sdk
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import com.bytedance.sdk.openadsdk.api.init.PAGSdk
 import com.bytedance.sdk.openadsdk.api.interstitial.PAGInterstitialAd
 import com.bytedance.sdk.openadsdk.api.interstitial.PAGInterstitialAdInteractionCallback
@@ -12,12 +13,17 @@ import com.bytedance.sdk.openadsdk.api.model.PAGErrorModel
 import com.cat.manx.common.Tools
 import com.cat.manx.feline.FelineActivityCache
 import com.cat.manx.net.CollarNetwork
+import com.facebook.appevents.AppEventsLogger
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.util.Currency
 
 
 /**
@@ -79,17 +85,17 @@ class PangleImpl(val context: Context) : BaseAdCenter() {
             ad.setAdInteractionCallback(object : PAGInterstitialAdInteractionCallback() {
                 override fun onAdReturnRevenue(pagAdEcpmInfo: PAGAdEcpmInfo?) {
                     super.onAdReturnRevenue(pagAdEcpmInfo)
-                    FelineActivityCache.isShowAd = true
+                    FelineActivityCache.isShowingAd = true
                     showJob?.cancel()
                     postEvent("pop_2_api", "${(System.currentTimeMillis() - time) / 1000}")
-                    adShow(pagAdEcpmInfo)
+                    val ecpm = adShow(pagAdEcpmInfo)
+                    postEcpm(ecpm)
                 }
 
                 override fun onAdShowFailed(pagErrorModel: PAGErrorModel) {
                     super.onAdShowFailed(pagErrorModel)
                     postEvent(
-                        "pop_3_fail",
-                        "${pagErrorModel.errorCode}_${pagErrorModel.errorMessage}"
+                        "pop_3_fail", "${pagErrorModel.errorCode}_${pagErrorModel.errorMessage}"
                     )
                     close.invoke()
                 }
@@ -103,6 +109,22 @@ class PangleImpl(val context: Context) : BaseAdCenter() {
             mPAGInterstitialAd = null
         } else {
             activity.finishAndRemoveTask()
+        }
+    }
+
+    private fun postEcpm(ecpm: Double) {
+        Tools.log("postEcpm--->$ecpm")
+        runCatching {
+            //fb purchase
+            AppEventsLogger.newLogger(context).logPurchase(
+                ecpm.toBigDecimal(), Currency.getInstance("USD")
+            )
+        }
+        runCatching {
+            Firebase.analytics.logEvent("ad_impression_shooter", Bundle().apply {
+                putDouble(FirebaseAnalytics.Param.VALUE, ecpm)
+                putString(FirebaseAnalytics.Param.CURRENCY, "USD")
+            })
         }
     }
 }

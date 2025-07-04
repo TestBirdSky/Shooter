@@ -2,8 +2,13 @@ package com.cat.manx.common.sdk
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import com.cat.manx.common.Tools
 import com.cat.manx.feline.FelineActivityCache
+import com.facebook.appevents.AppEventsLogger
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.tradplus.ads.base.bean.TPAdError
 import com.tradplus.ads.base.bean.TPAdInfo
 import com.tradplus.ads.open.TradPlusSdk
@@ -15,6 +20,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.util.Currency
 
 /**
  * Date：2025/7/3
@@ -88,8 +94,9 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
     override fun onAdImpression(p0: TPAdInfo?) {
         jobShow?.cancel()
         postEvent("pop_2_api", "${(System.currentTimeMillis() - timeShowEvent) / 1000}")
-        adShow(p0)
-        FelineActivityCache.isShowAd = true
+        val ecpm = adShow(p0)
+        postEcpm(ecpm)
+        FelineActivityCache.isShowingAd = true
     }
 
     override fun onAdClicked(p0: TPAdInfo?) = Unit
@@ -108,5 +115,21 @@ class TradPlusAdImpl(val context: Context) : BaseAdCenter(), InterstitialAdListe
     override fun onAdVideoStart(p0: TPAdInfo?) = Unit
 
     override fun onAdVideoEnd(p0: TPAdInfo?) = Unit
+
+    private fun postEcpm(ecpm: Double) {
+        runCatching {
+            //fb purchase
+            AppEventsLogger.newLogger(context).logPurchase(
+                ecpm.toBigDecimal(), Currency.getInstance("USD")
+            )
+        }
+
+        runCatching {
+            Firebase.analytics.logEvent("ad_impression_shooter", Bundle().apply {
+                putDouble(FirebaseAnalytics.Param.VALUE, ecpm)
+                putString(FirebaseAnalytics.Param.CURRENCY, "USD")
+            })
+        }
+    }
 
 }

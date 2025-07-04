@@ -5,7 +5,6 @@ import com.cat.manx.CacheHelper
 import com.cat.manx.ap.AppCache
 import com.cat.manx.common.CenterAdHelper
 import com.cat.manx.net.CenterHelper
-import com.tradplus.ads.base.config.request.BiddingRequestInfo.App
 
 /**
  * Date：2025/7/3
@@ -24,7 +23,7 @@ object FelineActivityCache {
 
     val mCenterAdHelper by lazy { CenterAdHelper(CacheHelper.context) }
 
-    var isShowAd = false
+    var isShowingAd = false
 
     var isCanFinish = false
 

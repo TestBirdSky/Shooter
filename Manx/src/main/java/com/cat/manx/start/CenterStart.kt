@@ -3,10 +3,19 @@ package com.cat.manx.start
 import android.app.Application
 import android.content.Context
 import android.os.Build
+import android.util.Log
+import com.appsflyer.AFAdRevenueData
+import com.appsflyer.AdRevenueScheme
+import com.appsflyer.AppsFlyerLib
+import com.appsflyer.MediationNetwork
 import com.cat.manx.AfRegister
 import com.cat.manx.CacheHelper
 import com.cat.manx.QueenActivityLifeCall
 import com.cat.manx.feline.FelineCloakFetch
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.UUID
 
 /**

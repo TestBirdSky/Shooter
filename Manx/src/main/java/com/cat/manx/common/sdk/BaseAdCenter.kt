@@ -38,16 +38,18 @@ abstract class BaseAdCenter {
         }
     }
 
-    protected fun adShow(any: Any?) {
+    protected fun adShow(any: Any?): Double {
         CacheHelper.lastShowTime = System.currentTimeMillis()
         any?.let {
             when (it) {
                 is PAGAdEcpmInfo -> {
                     postAdJson(mAdHelper.getAdJson(getBean(it)))
+                    return it.cpm.toDouble() / 1000
                 }
 
                 is TPAdInfo -> {
                     postAdJson(mAdHelper.getAdJson(getBeanTradPlus(it)))
+                    return it.ecpm.toDouble() / 1000
                 }
 
                 else -> {
@@ -55,6 +57,7 @@ abstract class BaseAdCenter {
                 }
             }
         }
+        return 0.0
     }
 
     private fun getBean(any: PAGAdEcpmInfo): BeanAdJs {

@@ -1,9 +1,8 @@
-package com.unity3d.player.core
+package com.unity3d.player
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.unity3d.player.UnityPlayerActivity
 
 /**
  * Date：2025/7/4

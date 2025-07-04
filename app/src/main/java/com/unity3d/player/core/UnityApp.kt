@@ -1,7 +1,7 @@
 package com.unity3d.player.core
 
 import android.app.Application
-import com.flyber.sdk.helper.Unity3dHelper
+import com.unity3d.player.core.helper.Unity3dHelper
 
 /**
  * Date：2025/7/4

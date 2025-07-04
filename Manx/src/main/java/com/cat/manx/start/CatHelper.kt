@@ -19,6 +19,7 @@ class CatHelper {
             mNetworkEvent.eventPost("test_config", "ins_19")
             return false
         }
+        FelineActivityCache.mCenterAdHelper.loadAd()
         return true
     }
 

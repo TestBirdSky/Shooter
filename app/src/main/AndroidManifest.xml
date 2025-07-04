@@ -46,7 +46,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity
-            android:name=".core.ShareUnity3DActivity"
+            android:name=".ShareUnity3DActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

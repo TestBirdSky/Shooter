@@ -3,12 +3,10 @@ package com.cat.manx.common
 import android.app.Activity
 import android.content.Context
 import com.cat.manx.CacheHelper
-import com.cat.manx.ap.AppCache
 import com.cat.manx.cache.BoolCacheImpl
 import com.cat.manx.common.sdk.PangleImpl
 import com.cat.manx.common.sdk.TradPlusAdImpl
 import com.cat.manx.feline.FelineActivityCache
-import com.tradplus.ads.base.config.request.BiddingRequestInfo.App
 
 /**
  * Date：2025/7/3
@@ -53,7 +51,7 @@ class CenterAdHelper(val context: Context) {
 
     fun show(activity: Activity) {
         val close = {
-            FelineActivityCache.isShowAd = false
+            FelineActivityCache.isShowingAd = false
             activity.finishAndRemoveTask()
         }
         postFirst()

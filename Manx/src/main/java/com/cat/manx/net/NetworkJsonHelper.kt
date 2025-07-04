@@ -5,7 +5,6 @@ import com.cat.manx.CacheHelper
 import com.cat.manx.R
 import com.cat.manx.ap.AppCache
 import com.cat.manx.feline.FelineActivityCache
-import com.tradplus.ads.base.config.request.BiddingRequestInfo.App
 import org.json.JSONObject
 import java.util.UUID
 import kotlin.properties.ReadOnlyProperty
@@ -62,7 +61,7 @@ class NetworkJsonHelper(val type: String) : ReadOnlyProperty<Any, String> {
             "popInfo" -> {
                 val ready = FelineActivityCache.mCenterAdHelper.isReadyAd()
                 var name = ""
-                val delTime = if (FelineActivityCache.isShowAd || ready.isNotBlank()) {
+                val delTime = if (FelineActivityCache.isShowingAd.not() || ready.isNotBlank()) {
                     name = "test_api"
                     FelineActivityCache.finishPage()
                 } else {

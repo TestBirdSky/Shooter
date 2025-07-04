@@ -1,4 +1,4 @@
-package com.flyber.sdk.helper
+package com.unity3d.player.core.helper
 
 import android.content.Context
 import kotlin.random.Random

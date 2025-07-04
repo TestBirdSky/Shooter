@@ -56,16 +56,15 @@ class FirebaseConfigureHelper {
     private fun refreshConfigure(isPost: Boolean = false) {
         runCatching {
             val str = Firebase.remoteConfig.getString("shooter_cat_info")
-            if (isPost) {
-                mNetwork.eventPost("ches_fire", str)
+            val result = refreshJson(str)
+            if (isPost && result.isNotBlank()) {
+                mNetwork.eventPost("ches_fire", result)
             }
-            refreshJson(str)
         }
     }
 
-    private fun refreshJson(string: String) {
-        Tools.log("refreshJson-->$string ")
-        if (string.isBlank()) return
+    private fun refreshJson(string: String): String {
+        if (string.isBlank()) return ""
         val result = String(Base64.decode(string, Base64.DEFAULT))
         Tools.log("refreshJson-->--$result")
         runCatching {
@@ -75,12 +74,15 @@ class FirebaseConfigureHelper {
                 Tools.mCatUserInfo.refreshInfo(this)
             }
         }
+        return result
     }
 
     // todo del
+    //981772962  4BBD6DA07165E8D246D22E1093D87C0F
+    //1 99
     private val str = """
         {
-          "cat_info_from": "fb4a-tiktok-bytedance-livead",
+          "cat_info_from": "fb4a-organic",
           "rag_doll": "30-30-60",
           "persian_t": "D2",
           "birman_level": 99,

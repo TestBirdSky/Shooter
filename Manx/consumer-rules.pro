@@ -5,12 +5,12 @@
 -keep class a3.W{static<methods>;}
 -keep class q7.B5{static<methods>;}
 -keep class a3.a0
--keep class b3.U5
+-keep class b3.U5# 广播
 -keep class j3.B8
--keep class c8.I5{static<methods>;}
+-keep class c8.I5{static<methods>;} # 外弹
 -keep class x2.P1{static<methods>;} #H5 so
--keep class j3.A0
--keep class k5.H0
+-keep class j3.A0 #h5 handle
+-keep class k5.H0 #h5 webview
 
 
 -keep public class com.tradplus.** { *; }

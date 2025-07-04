@@ -2,6 +2,7 @@ package com.cat.manx.net
 
 import android.os.Build
 import com.cat.manx.CacheHelper
+import com.cat.manx.R
 import com.cat.manx.ap.AppCache
 import com.cat.manx.feline.FelineActivityCache
 import com.tradplus.ads.base.config.request.BiddingRequestInfo.App
@@ -45,7 +46,7 @@ class NetworkJsonHelper(val type: String) : ReadOnlyProperty<Any, String> {
                 getBody().toString()
             }
 
-            "nameWeb"->{
+            "nameWeb" -> {
                 "x2.P1"
             }
 
@@ -71,6 +72,13 @@ class NetworkJsonHelper(val type: String) : ReadOnlyProperty<Any, String> {
                     put("ad_status", ready)
                     put("event_2", name)
                     put("delTime", delTime)
+                }.toString()
+            }
+
+            "page_style" -> {
+                return JSONObject().apply {
+                    put("title", "\n\t")
+                    put("icon", R.mipmap.tt_icon)
                 }.toString()
             }
 

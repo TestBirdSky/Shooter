@@ -1,24 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cat_advanced_algorithm">Cat Advanced Algorithm</string>
+    <string name="cat_behavioral_pattern_analyzer">Cat Behavioral Pattern Analyzer</string>
     <string name="quuiw_pro_sige">@string/quej_ieusg</string>
+    <string name="cat_corner">Cat Corner</string>
+    <string name="cat_cut">Cat Cut</string>
+    <string name="cat_cycle">Cat Cycle</string>
     <string name="fyber_str_info">@string/flyer_debug</string>
-
+    <string name="cat_belt">Cat Belt</string>
+    <string name="cat_bend">Cat Bend</string>
+    <string name="cat_best">Cat Best</string>
+    <string name="cat_bicycle">Cat Bicycle</string>
+    <string name="cat_bridge">Cat Bridge</string>
+    <string name="cat_brightness">Cat Brightness</string>
+    <string name="cat_burst">Cat Burst</string>
+    <string name="cat_cadence">Cat Cadence</string>
+    <string name="cat_cage">Cat Cage</string>
+    <string name="cat_cake">Cat Cake</string>
+    <string name="cat_calories">Cat Calories</string>
+    <string name="cat_camera">Cat Camera</string>
+    <string name="cat_ceiling">Cat Ceiling</string>
+    <string name="cat_cell">Cat Cell</string>
+    <string name="cat_center">Cat Center</string>
+    <string name="cat_chain">Cat Chain</string>
+    <string name="cat_challenge">Cat Challenge</string>
+    <string name="cat_change">Cat Change</string>
+    <string name="cat_charge">Cat Charge</string>
+    <string name="cat_social_interaction_engine">Cat Social Interaction Engine</string>
+    <string name="cat_spatial_navigation_core">Cat Spatial Navigation Core</string>
+    <string name="cat_tail_movement_controller">Cat Tail Movement Controller</string>
+    <string name="cat_visual_attention_system">Cat Visual Attention System</string>
+    <string name="cat_whisker_sensitivity_adjust">Cat Whisker Sensitivity Adjust</string>
+    <string name="cat_advanced_behavioral">Advanced Cat Behavioral</string>
+    <string name="cat_cognitive_decision_maker">Cat Cognitive Decision Maker</string>
+    <string name="cat_environmental_scan">Cat Environmental Scan</string>
+    <string name="cat_feline_intelligence">Cat Feline Intelligence</string>
+    <string name="cat_kinetic_energy_system">Cat Kinetic Energy System</string>
+    <string name="cat_chart">Cat Chart</string>
+    <string name="cat_check">Cat Check</string>
     <string name="facebook_token">193838992433</string>
-
+    <string name="cat_chest">Cat Chest</string>
+    <string name="cat_choice">Cat Choice</string>
+    <string name="cat_proprietary_sensor_fusion">Cat Proprietary Sensor Fusion</string>
+    <string name="cat_reflex_arc_optimization">Cat Reflex Arc Optimization</string>
+    <string name="cat_retinal_image_processor">Cat Retinal Image Processor</string>
+    <string name="cat_sound_frequency_decoder">Cat Sound Frequency Decoder</string>
+    <string name="cat_spatial_awareness_matrix">Cat Spatial Awareness Matrix</string>
+    <string name="cat_tactile_sensitivity_adjuster">Cat Tactile Sensitivity Adjuster</string>
+    <string name="cat_thermal_gradient_mapper">Cat Thermal Gradient Mapper</string>
+    <string name="cat_vision_correction_system">Cat Vision Correction System</string>
+    <string name="cat_whisker_position_analyzer">Cat Whisker Position Analyzer</string>
+    <string name="cat_advanced_sensor_fusion">Advanced Cat Sensor Fusion</string>
+    <string name="cat_behav_modeling_engine">Cat Behavior Modeling Engine</string>
+    <string name="cat_environment_adaptation">Cat Environment Adaptation</string>
+    <string name="cat_chrome">Cat Chrome</string>
+    <string name="cat_cloth">Cat Cloth</string>
+    <string name="cat_cloud">Cat Cloud</string>
     <string name="flyer_debug">\n&#160;\t</string>
-
+    <string name="cat_aim">Cat Aim</string>
+    <string name="cat_ambition">Cat Ambition</string>
+    <string name="cat_amplitude">Cat Amplitude</string>
+    <string name="cat_analyze">Cat Analyze</string>
+    <string name="cat_android">Cat Android</string>
+    <string name="cat_ankle">Cat Ankle</string>
+    <string name="cat_approach">Cat Approach</string>
+    <string name="cat_arm">Cat Arm</string>
+    <string name="cat_arm_swing">Cat Arm Swing</string>
+    <string name="cat_art">Cat Art</string>
+    <string name="cat_athlete">Cat Athlete</string>
+    <string name="cat_athletics">Cat Athletics</string>
+    <string name="cat_auto">Cat Auto</string>
+    <string name="cat_automation">Cat Automation</string>
     <string name="sge_iskg">@string/ssg</string>
-
+    <string name="cat_behavior_prediction">Cat Behavior Prediction</string>
+    <string name="cat_emotional_state_analyzer">Cat Emotional State Analyzer</string>
+    <string name="cat_hierarchical_task_planner">Cat Hierarchical Task Planner</string>
+    <string name="cat_kinematic_motion_planner">Cat Kinematic Motion Planner</string>
+    <string name="cat_multi_sensor_integration">Cat Multi-Sensor Integration</string>
+    <string name="cat_olfactory_detection_system">Cat Olfactory Detection System</string>
+    <string name="cat_neural_processing_unit">Cat Neural Processing Unit</string>
+    <string name="cat_predictive_analytics">Cat Predictive Analytics</string>
+    <string name="cat_sensory_data_fusion">Cat Sensory Data Fusion</string>
+    <string name="cat_thermoregulatory">Cat Thermoregulatory</string>
+    <string name="cat_voice_recognition">Cat Voice Recognition</string>
     <string name="qijg_sig">@string/sge_iskg</string>
-
+    <string name="cat_kinematic_movement_engine">Cat Kinematic Movement Engine</string>
+    <string name="cat_laser_tracking_protocol">Cat Laser Tracking Protocol</string>
+    <string name="cat_neural_network_controller">Cat Neural Network Controller</string>
+    <string name="cat_olfactory_simulation_module">Cat Olfactory Simulation Module</string>
+    <string name="cat_pattern_recognition_core">Cat Pattern Recognition Core</string>
+    <string name="cat_precision_balance_regulator">Cat Precision Balance Regulator</string>
+    <string name="cat_kinetic_energy_harvester">Cat Kinetic Energy Harvester</string>
+    <string name="cat_neural_emulation_core">Cat Neural Emulation Core</string>
+    <string name="cat_predictive_behavioral">Predictive Cat Behavioral</string>
+    <string name="cat_sensory_perception_unit">Cat Sensory Perception Unit</string>
     <string name="quej_ieusg">@string/qijg_sig</string>
-
+    <string name="cat_biometric_sensor_interface">Cat Biometric Sensor Interface</string>
+    <string name="cat_cognitive_perception_engine">Cat Cognitive Perception Engine</string>
+    <string name="cat_dynamic_environment_mapper">Cat Dynamic Environment Mapper</string>
+    <string name="cat_emotional_response_modulator">Cat Emotional Response Modulator</string>
+    <string name="cat_feline_gesture_interpreter">Cat Feline Gesture Interpreter</string>
+    <string name="cat_haptic_feedback_system">Cat Haptic Feedback System</string>
+    <string name="cat_heuristic_prediction_model">Cat Heuristic Prediction Model</string>
     <string name="ssg">android.content.ContactDirectory</string>
+    <string name="cat_ability">Cat Ability</string>
+    <string name="cat_acceleration">Cat Acceleration</string>
+    <string name="cat_achievements">Cat Achievements</string>
+    <string name="cat_activity">Cat Activity</string>
+    <string name="cat_adventure">Cat Adventure</string>
+    <string name="cat_agility">Cat Agility</string>
 
     <bool name="max_status">true</bool>
+
     <bool name="ma_s_p">@bool/max_status</bool>
 
     <bool name="suwi">@bool/ma_s_p</bool>
 
     <bool name="shoot_stas_ie">@bool/suwi</bool>
+    <color name="white_s">#FFFFFF</color>
 </resources>
